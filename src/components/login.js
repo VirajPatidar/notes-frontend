@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import axios from 'axios';
 import Copyright from './copyright'
+import { isLoggedIn } from '../atoms';
+import { useSetRecoilState } from 'recoil';
+
 
 //MUI
 import Avatar from '@mui/material/Avatar';
@@ -26,6 +29,8 @@ function TransitionLeft(props) {
 }
 
 export default function Login() {
+
+    const setLogin = useSetRecoilState(isLoggedIn);
 
     const history = useHistory();
     const initialFormData = Object.freeze({
@@ -87,7 +92,7 @@ export default function Login() {
                 .then((res) => {
                     console.log(res);
                     console.log(res.data);
-
+                    setLogin(true);
                     history.push('/notes');
 
                 })
