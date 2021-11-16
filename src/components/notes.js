@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import Container from '@mui/material/Container'
-import Box from '@mui/material/Box'
 import Masonry from 'react-masonry-css'
 import NoteCard from './noteCard'
 import axios from 'axios';
+import { isLoggedIn } from '../atoms';
+import { useRecoilValue } from 'recoil';
+
+//MUI
+import Container from '@mui/material/Container'
+import Box from '@mui/material/Box'
 
 export default function Notes() {
+
+    const login = useRecoilValue(isLoggedIn);
     const [notes, setNotes] = useState([]);
 
     useEffect(() => {
@@ -33,21 +39,25 @@ export default function Notes() {
     };
 
     return (
-        <Box sx={{backgroundColor: "#e0f7fa"}}>
-            <Container>
-                <Box sx={{ pt: 5 }}>
-                    <Masonry
-                        breakpointCols={breakpoints}
-                        className="my-masonry-grid"
-                        columnClassName="my-masonry-grid_column">
-                        {notes.map(note => (
-                            <div key={note.ID}>
-                                <NoteCard note={note} handleDelete={handleDelete} />
-                            </div>
-                        ))}
-                    </Masonry>
-                </Box>
-            </Container>
+        <Box sx={{ backgroundColor: "#e0f7fa" }}>
+            {login ?
+                <Container>
+                    <Box sx={{ pt: 5 }}>
+                        <Masonry
+                            breakpointCols={breakpoints}
+                            className="my-masonry-grid"
+                            columnClassName="my-masonry-grid_column">
+                            {notes.map(note => (
+                                <div key={note.ID}>
+                                    <NoteCard note={note} handleDelete={handleDelete} />
+                                </div>
+                            ))}
+                        </Masonry>
+                    </Box>
+                </Container>
+                :
+                null
+            }
         </Box>
     )
 }

@@ -49,6 +49,12 @@ export default function Navbar() {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         NOTE
                     </Typography>
+                    {login &&
+                        <nav>
+                            <Button color="inherit" sx={{ mr: 2 }} href="/create">Create</Button>
+                            <Button color="inherit" sx={{ mr: 3 }} href="/notes">My Notes</Button>
+                        </nav>
+                    }
                     {login ?
                         <Button color="inherit" variant="outlined" startIcon={<LogoutIcon />} onClick={logout}>
                             Logout

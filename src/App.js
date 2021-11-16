@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import { Route, Switch } from "react-router-dom";
 import SignUp from './components/signUp';
 import Navbar from './components/navbar';
@@ -8,11 +8,12 @@ import Notes from './components/notes';
 import NotFound from './components/notFound';
 import { isLoggedIn } from './atoms';
 import axios from 'axios';
+import CreateNote from './components/createNote';
 
 
 function App() {
 
-    const [login, setLogin] = useRecoilState(isLoggedIn);
+    const setLogin = useSetRecoilState(isLoggedIn);
 
     useEffect(() => {
         axios.get(`http://localhost:8000/api/user/`, {withCredentials: true})
@@ -28,11 +29,12 @@ function App() {
 
     return (
         <>
-            <Navbar/>
+            <Navbar />
             <Switch>
                 <Route path="/" component={SignUp} exact />
                 <Route path="/login" component={Login} exact />
-                <Route path="/notes" component={login ? Notes : Login} exact />
+                <Route path="/notes" component={Notes} exact />
+                <Route path="/create" component={CreateNote} exact />
                 
                 <Route component={NotFound} /> 
             </Switch>
