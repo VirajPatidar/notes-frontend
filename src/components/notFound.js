@@ -20,7 +20,7 @@ const NotFound = () => {
         <div>
             <Paper sx={{
                 backgroundColor: indigo[50],
-                minHeight: '90vh',
+                minHeight: '93vh',
             }}>
                 <Box pt={16}>
                     <Grid container

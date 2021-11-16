@@ -39,7 +39,7 @@ export default function Notes() {
     };
 
     return (
-        <Box sx={{ backgroundColor: "#e0f7fa" }}>
+        <Box sx={{ backgroundColor: "#e0f7fa", height: "93vh" }}>
             {login ?
                 <Container>
                     <Box sx={{ pt: 5 }}>

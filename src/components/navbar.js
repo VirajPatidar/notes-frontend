@@ -14,6 +14,8 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import NotesOutlinedIcon from '@mui/icons-material/NotesOutlined';
 
 export default function Navbar() {
 
@@ -51,8 +53,8 @@ export default function Navbar() {
                     </Typography>
                     {login &&
                         <nav>
-                            <Button color="inherit" sx={{ mr: 2 }} href="/create">Create</Button>
-                            <Button color="inherit" sx={{ mr: 3 }} href="/notes">My Notes</Button>
+                            <Button color="inherit" sx={{ mr: 4 }} startIcon={<AddCircleOutlineIcon sx={{mr: 0, pr:0}} /> } href="/create">Create</Button>
+                            <Button color="inherit" sx={{ mr: 5 }} startIcon={<NotesOutlinedIcon  sx={{mr: 0, pr:0}} />} href="/notes">My Notes</Button>
                         </nav>
                     }
                     {login ?
