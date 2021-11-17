@@ -9,6 +9,7 @@ import { useRecoilValue } from 'recoil';
 import Container from '@mui/material/Container'
 import Box from '@mui/material/Box'
 import EditDialog from './editDialog';
+import { Typography } from '@mui/material';
 
 export default function Notes() {
 
@@ -55,16 +56,22 @@ export default function Notes() {
             {login ?
                 <Container>
                     <Box sx={{ pt: 5 }}>
-                        <Masonry
-                            breakpointCols={breakpoints}
-                            className="my-masonry-grid"
-                            columnClassName="my-masonry-grid_column">
-                            {notes.map(note => (
-                                <div key={note.ID}>
-                                    <NoteCard note={note} handleDelete={handleDelete} handleEdit={handleEdit} />
-                                </div>
-                            ))}
-                        </Masonry>
+                        {notes && notes.length > 0 ?
+                            <Masonry
+                                breakpointCols={breakpoints}
+                                className="my-masonry-grid"
+                                columnClassName="my-masonry-grid_column">
+                                {notes.map(note => (
+                                    <div key={note.ID}>
+                                        <NoteCard note={note} handleDelete={handleDelete} handleEdit={handleEdit} />
+                                    </div>
+                                ))}
+                            </Masonry>
+                            :
+                            <Typography variant="h6" gutterBottom component="div" sx={{mt: 5}}>
+                                No notes created yet ....
+                            </Typography>
+                        }
                     </Box>
                     <EditDialog
                         open={open}

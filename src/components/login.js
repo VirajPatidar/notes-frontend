@@ -76,7 +76,7 @@ export default function Login() {
             console.log(submit)
             console.log(formData.email)
         }
-        if (formData.password === "" || formData.password.length < 4) {
+        if (formData.password === "" || formData.password.length < 5) {
             setPasserror(true)
             submit = false
             console.log(submit)

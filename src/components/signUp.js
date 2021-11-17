@@ -85,7 +85,7 @@ export default function SignUp() {
 			console.log(submit)
 			console.log(formData.name)
 		}
-		if (formData.password === "" || formData.password.length < 6) {
+		if (formData.password === "" || formData.password.length < 5) {
 			setPasserror(true)
 			submit = false
 			console.log(submit)
