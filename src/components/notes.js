@@ -8,11 +8,18 @@ import { useRecoilValue } from 'recoil';
 //MUI
 import Container from '@mui/material/Container'
 import Box from '@mui/material/Box'
+import EditDialog from './editDialog';
 
 export default function Notes() {
 
     const login = useRecoilValue(isLoggedIn);
     const [notes, setNotes] = useState([]);
+    const [data, setData] = useState(0);
+
+    //Edit Note Dialog
+    const [open, setOpen] = useState(false);
+    const openDialog = () => setOpen(true);
+    const close = () => setOpen(false);
 
     useEffect(() => {
         axios.get(`http://localhost:8000/api/notes`, { withCredentials: true })
@@ -32,6 +39,11 @@ export default function Notes() {
         window.location.reload();
     }
 
+    const handleEdit = (id) => {
+        setData(id);
+        openDialog();
+    }
+
     const breakpoints = {
         default: 3,
         1100: 2,
@@ -39,7 +51,7 @@ export default function Notes() {
     };
 
     return (
-        <Box sx={{ backgroundColor: "#e0f7fa", height: "93vh" }}>
+        <Box sx={{ backgroundColor: "#e0f7fa", minHeight: "93vh" }}>
             {login ?
                 <Container>
                     <Box sx={{ pt: 5 }}>
@@ -49,11 +61,16 @@ export default function Notes() {
                             columnClassName="my-masonry-grid_column">
                             {notes.map(note => (
                                 <div key={note.ID}>
-                                    <NoteCard note={note} handleDelete={handleDelete} />
+                                    <NoteCard note={note} handleDelete={handleDelete} handleEdit={handleEdit} />
                                 </div>
                             ))}
                         </Masonry>
                     </Box>
+                    <EditDialog
+                        open={open}
+                        closeDialog={close}
+                        id={data}
+                    />
                 </Container>
                 :
                 null
