@@ -1,5 +1,37 @@
-# Getting Started with Create React App
+# Note Making Application
 
+_Note making application is a project that lets you create notes on the go. <br/>
+Organise notes by specifing categories and create custom categories if required._
+
+_A [backend api](https://github.com/VirajPatidar/notes-backend) has been built using **GO Fiber** to achieve the same._
+
+<br/>
+
+<!-- **Link to the website:** []() <br/> -->
+
+**Link to backend repo:** [https://github.com/VirajPatidar/notes-backend](https://github.com/VirajPatidar/notes-backend)
+
+
+### Tech Stack ###
+* React
+* Recoil
+* MATERIAL-UI
+* react-masonry-css
+* axios
+
+
+### Features ###
+* **Responsive Design**
+* **Material Design**
+* **Secure authentication using HTTP only cookies**
+
+
+<br/>
+<br/>
+
+- - - -
+
+## Getting Started with Create React App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
