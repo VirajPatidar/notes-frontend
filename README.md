@@ -7,7 +7,7 @@ _A [backend api](https://github.com/VirajPatidar/notes-backend) has been built u
 
 <br/>
 
-<!-- **Link to the website:** []() <br/> -->
+**Link to the website:** [https://go-notes.netlify.app/](https://go-notes.netlify.app/) <br/>
 
 **Link to backend repo:** [https://github.com/VirajPatidar/notes-backend](https://github.com/VirajPatidar/notes-backend)
 
