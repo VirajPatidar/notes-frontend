@@ -23,7 +23,7 @@ export default function Notes() {
     const close = () => setOpen(false);
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/notes`, { withCredentials: true })
+        axios.get(`https://go-notes-backend.herokuapp.com/api/notes`, { withCredentials: true })
             .then((res) => {
                 console.log(res);
                 console.log(res.data);
@@ -36,7 +36,7 @@ export default function Notes() {
     }, [])
 
     const handleDelete = async (id) => {
-        await axios.delete('http://localhost:8000/api/delete-note/' + id, { withCredentials: true })
+        await axios.delete('https://go-notes-backend.herokuapp.com/api/delete-note/' + id, { withCredentials: true })
         window.location.reload();
     }
 

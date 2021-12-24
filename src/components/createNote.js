@@ -43,7 +43,7 @@ export default function CreateNote() {
             setDetailsError(true)
         }
         if (title && details) {
-            axios.post(`http://localhost:8000/api/create-note`, {
+            axios.post(`https://go-notes-backend.herokuapp.com/api/create-note`, {
                 "title": title,
                 "category": category,
                 "details": details

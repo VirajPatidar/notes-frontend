@@ -85,7 +85,7 @@ export default function Login() {
 
 
         if (submit) {
-            axios.post(`http://localhost:8000/api/login`, {
+            axios.post(`https://go-notes-backend.herokuapp.com/api/login`, {
                     "email": formData.email,
                     "password": formData.password,
                 }, {withCredentials: true})
