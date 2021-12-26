@@ -39,22 +39,36 @@ export default function Navbar() {
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
                 <Toolbar>
-                    <IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="menu"
-                        href="/"
-                    >
-                        <StickyNote2OutlinedIcon fontSize="large" />
-                    </IconButton>
+                    {login ?
+                        <IconButton
+                            size="large"
+                            edge="start"
+                            color="inherit"
+                            aria-label="menu"
+                            href="/notes"
+                        >
+                            <StickyNote2OutlinedIcon fontSize="large" />
+                        </IconButton>
+
+                        :
+
+                        <IconButton
+                            size="large"
+                            edge="start"
+                            color="inherit"
+                            aria-label="menu"
+                            href="/"
+                        >
+                            <StickyNote2OutlinedIcon fontSize="large" />
+                        </IconButton>
+                    }
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         NOTE
                     </Typography>
                     {login &&
                         <nav>
-                            <Button color="inherit" sx={{ mr: 4 }} startIcon={<AddCircleOutlineIcon sx={{mr: 0, pr:0}} /> } href="/create">Create</Button>
-                            <Button color="inherit" sx={{ mr: 5 }} startIcon={<NotesOutlinedIcon  sx={{mr: 0, pr:0}} />} href="/notes">My Notes</Button>
+                            <Button color="inherit" sx={{ mr: 4 }} startIcon={<AddCircleOutlineIcon sx={{ mr: 0, pr: 0 }} />} href="/create">Create</Button>
+                            <Button color="inherit" sx={{ mr: 5 }} startIcon={<NotesOutlinedIcon sx={{ mr: 0, pr: 0 }} />} href="/notes">My Notes</Button>
                         </nav>
                     }
                     {login ?
