@@ -30,7 +30,7 @@ export default function EditDialog(props) {
     const [category, setCategory] = useState("")
 
     useEffect(() => {
-        axios.get(`https://go-notes-backend.herokuapp.com/api/note/${props.id}`, { withCredentials: true })
+        axios.get(`https://notes-backend.up.railway.app/api/note/${props.id}`, { withCredentials: true })
             .then((res) => {
                 console.log(res);
                 console.log(res.data);
@@ -55,7 +55,7 @@ export default function EditDialog(props) {
             setDetailsError(true)
         }
         if (title && details) {
-            axios.put(`https://go-notes-backend.herokuapp.com/api/update-note/${props.id}`, {
+            axios.put(`https://notes-backend.up.railway.app/api/update-note/${props.id}`, {
                 "title": title,
                 "category": category,
                 "details": details

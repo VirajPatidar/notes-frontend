@@ -85,7 +85,7 @@ export default function Login() {
 
 
         if (submit) {
-            axios.post(`https://go-notes-backend.herokuapp.com/api/login`, {
+            axios.post(`https://notes-backend.up.railway.app/api/login`, {
                     "email": formData.email,
                     "password": formData.password,
                 }, {withCredentials: true})

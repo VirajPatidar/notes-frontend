@@ -23,7 +23,7 @@ export default function Navbar() {
     const history = useHistory();
 
     const logout = () => {
-        axios.post(`https://go-notes-backend.herokuapp.com/api/logout`, {}, { withCredentials: true })
+        axios.post(`https://notes-backend.up.railway.app/api/logout`, {}, { withCredentials: true })
             .then((res) => {
                 console.log(res);
                 setLogin(false);

@@ -16,7 +16,7 @@ function App() {
     const setLogin = useSetRecoilState(isLoggedIn);
 
     useEffect(() => {
-        axios.get(`https://go-notes-backend.herokuapp.com/api/user/`, {withCredentials: true})
+        axios.get(`https://notes-backend.up.railway.app/api/user/`, {withCredentials: true})
             .then((res) => {
                 console.log(res);
                 setLogin(true)

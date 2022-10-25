@@ -94,7 +94,7 @@ export default function SignUp() {
 
 		
 		if (submit) {
-			axios.post(`https://go-notes-backend.herokuapp.com/api/register`, {
+			axios.post(`https://notes-backend.up.railway.app/api/register`, {
 					"email": formData.email,
 					"name": formData.name,
 					"password": formData.password,
